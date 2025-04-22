@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 /**
  * 계산기 컴포넌트
  * 
- * 사용자 인터페이스를 담당하는 프레임워크 계층의 컴포넌트입니다.
- * 표현식 입력, 계산 결과 표시, 계산 기록 관리 기능을 제공합니다.
+ * 일반 모드와 공학용 모드를 지원하는 계산기 UI 컴포넌트입니다.
+ * 다크 모드와 라이트 모드를 전환할 수 있습니다.
  */
 const Calculator: React.FC = () => {
   // 상태 관리
@@ -12,7 +12,44 @@ const Calculator: React.FC = () => {
   const [result, setResult] = useState<string>('0');
   const [history, setHistory] = useState<Array<{ expression: string; result: string }>>([]);
   const [isEngineeringMode, setIsEngineeringMode] = useState<boolean>(false);
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  
+  // 다크 모드 상태 초기화 (localStorage 또는 시스템 설정에서 가져오기)
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme === 'dark';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  // 다크 모드 초기화 및 시스템 설정 변경 감지
+  useEffect(() => {
+    // 다크 모드 클래스 적용
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    }
+
+    // 시스템 다크 모드 설정 감지
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // 시스템 설정 변경 시 다크 모드 업데이트 (localStorage에 저장된 설정이 없을 경우에만)
+    const handleDarkModeChange = (e: MediaQueryListEvent) => {
+      const savedTheme = localStorage.getItem('theme');
+      if (!savedTheme) {
+        setIsDarkMode(e.matches);
+      }
+    };
+    
+    darkModeMediaQuery.addEventListener('change', handleDarkModeChange);
+    
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleDarkModeChange);
+    };
+  }, [isDarkMode]);
 
   // 키 입력 처리
   const handleKeyPress = (key: string) => {
@@ -73,7 +110,6 @@ const Calculator: React.FC = () => {
   // 테마 전환
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
   };
 
   // 키패드 배열 정의 (5x5 그리드)
