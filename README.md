@@ -4,6 +4,8 @@
 
 Clean Architecture와 SOLID 원칙을 적용한 React 기반 공학용 계산기 웹 애플리케이션입니다.
 
+[계산기 앱](https://roboco.io/vibecoding-demo/)
+
 ## 기능
 
 - 기본 수학 연산 (덧셈, 뺄셈, 곱셈, 나눗셈, 제곱, 제곱근)
