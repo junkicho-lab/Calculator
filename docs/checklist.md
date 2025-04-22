@@ -2,34 +2,34 @@
 
 ## 1. 프로젝트 초기 설정
 
-- [ ] 1.1. 프로젝트 디렉토리 구조 생성
+- [x] 1.1. 프로젝트 디렉토리 구조 생성
   - Clean Architecture에 맞는 폴더 구조 설정 (entities, usecases, adapters, frameworks)
   - 커밋: "초기 프로젝트 구조 설정"
 
-- [ ] 1.2. 개발 환경 설정
-  - [ ] Vite + React + TypeScript 프로젝트 생성
-  - [ ] ESLint, Prettier 설정
-  - [ ] Vitest 설정
-  - [ ] Chakra UI 설치 및 설정
-  - [ ] Math.js 설치
+- [x] 1.2. 개발 환경 설정
+  - [x] Vite + React + TypeScript 프로젝트 생성
+  - [x] ESLint, Prettier 설정
+  - [x] Vitest 설정
+  - [x] Chakra UI 설치 및 설정
+  - [x] Math.js 설치
   - 커밋: "개발 환경 설정 완료"
 
-- [ ] 1.3. 기본 프로젝트 구성 파일 작성
-  - [ ] README.md 작성
-  - [ ] .gitignore 설정
-  - [ ] tsconfig.json 설정
+- [x] 1.3. 기본 프로젝트 구성 파일 작성
+  - [x] README.md 작성
+  - [x] .gitignore 설정
+  - [x] tsconfig.json 설정
   - 커밋: "기본 프로젝트 구성 파일 작성 완료"
 
 ## 2. 엔티티 계층 구현
 
-- [ ] 2.1. 핵심 엔티티 구현
-  - [ ] Expression 인터페이스 및 구현체 작성
+- [x] 2.1. 핵심 엔티티 구현
+  - [x] Expression 인터페이스 및 구현체 작성
   - [ ] CalculationResult 인터페이스 및 구현체 작성
   - [ ] CalculationHistory 인터페이스 및 구현체 작성
   - 커밋: "핵심 엔티티 구현"
 
-- [ ] 2.2. 엔티티 단위 테스트 작성
-  - [ ] Expression 테스트
+- [x] 2.2. 엔티티 단위 테스트 작성
+  - [x] Expression 테스트
   - [ ] CalculationResult 테스트
   - [ ] CalculationHistory 테스트
   - 커밋: "엔티티 단위 테스트 작성 완료"
@@ -88,17 +88,17 @@
 
 ## 6. 프레임워크 계층 구현 - UI 컴포넌트
 
-- [ ] 6.1. 테마 설정
-  - [ ] Chakra UI 테마 설정
-  - [ ] 다크/라이트 모드 구현
+- [x] 6.1. 테마 설정
+  - [x] 기본 스타일 설정
+  - [x] 다크/라이트 모드 구현
   - 커밋: "테마 설정 완료"
 
-- [ ] 6.2. 기본 UI 컴포넌트 구현
-  - [ ] App 컴포넌트 구현
-  - [ ] Calculator 컴포넌트 구현
-  - [ ] Display 컴포넌트 구현
-  - [ ] Keypad 컴포넌트 구현
-  - [ ] Button 컴포넌트 구현
+- [x] 6.2. 기본 UI 컴포넌트 구현
+  - [x] App 컴포넌트 구현
+  - [x] Calculator 컴포넌트 구현
+  - [x] 계산기 디스플레이 구현
+  - [x] 키패드 구현
+  - [x] 버튼 구현
   - 커밋: "기본 UI 컴포넌트 구현 완료"
 
 - [ ] 6.3. 공학용 기능 UI 컴포넌트 구현
@@ -106,9 +106,9 @@
   - [ ] ModeToggle 컴포넌트 구현
   - 커밋: "공학용 기능 UI 컴포넌트 구현 완료"
 
-- [ ] 6.4. 히스토리 UI 컴포넌트 구현
-  - [ ] History 컴포넌트 구현
-  - [ ] HistoryItem 컴포넌트 구현
+- [x] 6.4. 히스토리 UI 컴포넌트 구현
+  - [x] 계산 기록 표시 기능 구현
+  - [x] 기록 아이템 구현
   - 커밋: "히스토리 UI 컴포넌트 구현 완료"
 
 - [ ] 6.5. UI 컴포넌트 테스트 작성
@@ -183,3 +183,17 @@
 4. 각 커밋은 명확하고 일관된 메시지를 포함해야 합니다.
 5. 코드 품질 유지를 위해 ESLint와 Prettier를 활용합니다.
 6. 주요 컴포넌트 개발 후에는 /docs 폴더에 관련 문서를 업데이트합니다.
+
+## 현재 진행 상황 (2025-04-22)
+
+- 프로젝트 초기 설정 완료
+- Expression 엔티티 및 테스트 구현 완료
+- 기본 UI 컴포넌트 및 계산기 화면 구현 완료
+- 다크/라이트 모드 지원 구현 완료
+- 계산 기록 표시 기능 구현 완료
+
+### 다음 작업 예정
+- CalculationResult 및 CalculationHistory 엔티티 구현
+- 유스케이스 계층 구현
+- Math.js 어댑터 구현
+- 공학용 기능 UI 컴포넌트 구현

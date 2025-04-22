@@ -1,4 +1,5 @@
 import './App.css';
+import Calculator from './frameworks/ui/components/Calculator';
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
         <p>Clean Architecture와 SOLID 원칙을 적용한 계산기 웹앱</p>
       </header>
       <main>
-        {/* 여기에 계산기 컴포넌트가 추가될 예정입니다 */}
+        <Calculator />
       </main>
     </div>
   );
