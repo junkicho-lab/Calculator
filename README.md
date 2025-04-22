@@ -1,5 +1,7 @@
 # 공학용 계산기 웹앱
 
+[![Deploy](https://github.com/roboco-io/vibecoding-demo/actions/workflows/deploy.yml/badge.svg)](https://github.com/roboco-io/vibecoding-demo/actions/workflows/deploy.yml)
+
 Clean Architecture와 SOLID 원칙을 적용한 React 기반 공학용 계산기 웹 애플리케이션입니다.
 
 ## 기능
@@ -76,3 +78,10 @@ npm run test:coverage
 ## 라이선스
 
 MIT
+
+## 문서
+
+- [데모 시나리오](docs/demo-scenario.md)
+- [설계 문서](docs/design.md)
+- [요구사항 문서](docs/requirements.md)
+- [개발 체크리스트](docs/checklist.md)
