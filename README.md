@@ -2,9 +2,13 @@
 
 [![Deploy](https://github.com/roboco-io/vibecoding-demo/actions/workflows/deploy.yml/badge.svg)](https://github.com/roboco-io/vibecoding-demo/actions/workflows/deploy.yml)
 
-Clean Architecture와 SOLID 원칙을 적용한 React 기반 공학용 계산기 웹 애플리케이션입니다.
+이 프로젝트는 티타임즈TV의 **[AX에 코리아 운명이 달렸다](https://www.youtube.com/watch?v=tTeCnBi6GPU&list=PL7d4-rFjtYdJ92huzIuksMynSBhA_FfMH)** 시리즈의 인터뷰에서 라이브 코딩으로 만든 공학용 계산기 웹 애플리케이션입니다.
 
 [계산기 앱](https://roboco.io/vibecoding-demo/)
+
+## 유튜브 영상
+- [1편 아! 바이브코딩이 이런 거였구나!!](https://www.youtube.com/watch?v=tTeCnBi6GPU)
+- [2편 바이브코딩 잘 하는 법 보여드립니다](https://www.youtube.com/watch?v=Ak2SiHYekdA)
 
 ## 기능
 
