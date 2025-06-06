@@ -6,6 +6,14 @@
 
 [계산기 앱](https://roboco.io/vibecoding-demo/)
 
+## 문서
+
+- [데모 시나리오](docs/demo-scenario.md)
+- [설계 문서](docs/design.md)
+- [요구사항 문서](docs/requirements.md)
+- [개발 체크리스트](docs/checklist.md)
+- [프롬프트 시나리오](docs/chat.md)
+
 ## 유튜브 영상
 - [1편 아! 바이브코딩이 이런 거였구나!!](https://www.youtube.com/watch?v=tTeCnBi6GPU)
 - [2편 바이브코딩 잘 하는 법 보여드립니다](https://www.youtube.com/watch?v=Ak2SiHYekdA)
@@ -85,9 +93,4 @@ npm run test:coverage
 
 MIT
 
-## 문서
 
-- [데모 시나리오](docs/demo-scenario.md)
-- [설계 문서](docs/design.md)
-- [요구사항 문서](docs/requirements.md)
-- [개발 체크리스트](docs/checklist.md)
