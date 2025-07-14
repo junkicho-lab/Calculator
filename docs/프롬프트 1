@@ -1,0 +1,162 @@
+공학용 계산기 웹앱을 위한 Clean Architecture 기반 기술 스택과 아키텍처를 제안드리겠습니다.
+
+## 핵심 기술 스택
+
+**프론트엔드 코어**
+- **React 18** + **TypeScript** (타입 안정성과 개발 생산성)
+- **Vite** (빠른 빌드와 개발 서버)
+- **Tailwind CSS** (유틸리티 기반 스타일링)
+
+**수학 연산 및 계산**
+- **Math.js** (고정밀도 수학 연산, 단위 변환, 복소수 지원)
+- **BigNumber.js** (부동소수점 정밀도 문제 해결)
+- **Plotly.js** 또는 **Recharts** (그래프 시각화)
+
+**상태 관리**
+- **Zustand** (가벼운 상태 관리, Clean Architecture와 잘 맞음)
+- **React Query/TanStack Query** (서버 상태 관리, 계산 히스토리)
+
+## Clean Architecture 레이어 구조
+
+```
+src/
+├── domain/           # 엔티티와 비즈니스 로직
+├── application/      # 유스케이스와 애플리케이션 서비스
+├── infrastructure/   # 외부 의존성 (APIs, 저장소)
+├── presentation/     # UI 컴포넌트와 뷰
+└── shared/          # 공통 유틸리티
+```
+
+**Domain Layer**
+- `Calculator.ts` (계산기 엔티티)
+- `Expression.ts` (수식 표현)
+- `CalculationHistory.ts` (계산 히스토리)
+- `interfaces/` (포트 정의)
+
+**Application Layer**
+- `CalculatorService.ts` (계산 유스케이스)
+- `HistoryService.ts` (히스토리 관리)
+- `ExpressionParser.ts` (수식 파싱)
+
+**Infrastructure Layer**
+- `MathCalculator.ts` (Math.js 어댑터)
+- `LocalStorageRepository.ts` (로컬 저장소)
+- `CalculationCache.ts` (계산 결과 캐싱)
+
+**Presentation Layer**
+- `components/` (재사용 가능한 UI 컴포넌트)
+- `pages/` (페이지별 컴포넌트)
+- `hooks/` (커스텀 훅)
+
+## SOLID 원칙 적용 예시
+
+**Single Responsibility Principle**
+```typescript
+// 각 클래스가 하나의 책임만 가짐
+class ExpressionValidator {
+  validate(expression: string): ValidationResult
+}
+
+class Calculator {
+  calculate(expression: string): CalculationResult
+}
+```
+
+**Open/Closed Principle**
+```typescript
+// 새로운 계산 기능 추가 시 기존 코드 수정 없이 확장
+interface CalculationStrategy {
+  execute(operands: number[]): number
+}
+
+class BasicOperations implements CalculationStrategy {
+  execute(operands: number[]): number { /* ... */ }
+}
+
+class EngineeringOperations implements CalculationStrategy {
+  execute(operands: number[]): number { /* ... */ }
+}
+```
+
+**Dependency Inversion Principle**
+```typescript
+// 인터페이스에 의존, 구현체에 직접 의존하지 않음
+interface ICalculatorRepository {
+  saveHistory(history: CalculationHistory): Promise<void>
+  getHistory(): Promise<CalculationHistory[]>
+}
+
+class CalculatorService {
+  constructor(private repository: ICalculatorRepository) {}
+}
+```
+
+## 공학용 계산기 특화 기능
+
+**과학 계산 라이브러리**
+- **ML-Matrix** (행렬 연산)
+- **Simple-statistics** (통계 함수)
+- **Algebrite** (기호 수학)
+
+**단위 변환 및 상수**
+- 물리 상수 라이브러리
+- 단위 변환 시스템
+- 공학 단위 지원
+
+**고급 시각화**
+- **D3.js** (커스텀 그래프)
+- **Three.js** (3D 시각화, 필요시)
+
+## 폴더 구조 예시
+
+```
+src/
+├── domain/
+│   ├── entities/
+│   │   ├── Calculator.ts
+│   │   ├── Expression.ts
+│   │   └── CalculationResult.ts
+│   ├── interfaces/
+│   │   ├── ICalculatorRepository.ts
+│   │   └── ICalculationEngine.ts
+│   └── value-objects/
+├── application/
+│   ├── services/
+│   │   ├── CalculatorService.ts
+│   │   └── HistoryService.ts
+│   └── use-cases/
+├── infrastructure/
+│   ├── repositories/
+│   ├── external-apis/
+│   └── adapters/
+├── presentation/
+│   ├── components/
+│   │   ├── Calculator/
+│   │   ├── Display/
+│   │   └── Keypad/
+│   ├── hooks/
+│   └── stores/
+└── shared/
+    ├── constants/
+    ├── utils/
+    └── types/
+```
+
+## 추가 권장사항
+
+**테스팅**
+- **Vitest** (단위 테스트)
+- **React Testing Library** (컴포넌트 테스트)
+- **MSW** (API 모킹)
+
+**개발 도구**
+- **ESLint** + **Prettier** (코드 품질)
+- **Husky** (Git 훅)
+- **Storybook** (컴포넌트 문서화)
+
+**성능 최적화**
+- Web Workers (복잡한 계산 처리)
+- React.memo (불필요한 리렌더링 방지)
+- Virtual scrolling (긴 계산 히스토리)
+
+이런 구조로 개발하면 유지보수가 쉽고 확장 가능한 공학용 계산기를 만들 수 있습니다. 특정 부분에 대해 더 자세한 설명이 필요하시면 말씀해 주세요!
